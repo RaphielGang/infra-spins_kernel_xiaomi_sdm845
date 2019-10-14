@@ -1,0 +1,17 @@
+[xxmitsu-llvm]
+name=Copr repo for llvm build from git daily
+baseurl=https://copr-be.cloud.fedoraproject.org/results/xxmitsu/llvm/fedora-$releasever-$basearch/
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/xxmitsu/llvm/pubkey.gpg
+enabled=1
+enabled_metadata=1
+
+[xxmitsu-llvm-x86]
+name=Copr repo for llvm build from git daily - x86
+baseurl=https://copr-be.cloud.fedoraproject.org/results/xxmitsu/llvm/fedora-$releasever-i386/
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/xxmitsu/llvm/pubkey.gpg
+enabled=1
+enabled_metadata=1
