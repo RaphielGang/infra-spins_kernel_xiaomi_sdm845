@@ -14,10 +14,6 @@ RUN dnf install -y \
 # Remove beignet and pocl as copr required it
     && dnf remove -y beignet pocl \
     \
-# Enable LLVM Copr for Clang
-    && dnf copr enable -y \
-    xxmitsu/llvm \
-    \
 # Install other required components
     && dnf install -y \
         gcc-aarch64-linux-gnu \
