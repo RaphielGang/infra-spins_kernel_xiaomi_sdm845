@@ -11,7 +11,7 @@
 repo=spinsinfra
 tag=fedora
 
-docker build . raphielscape/$repo:$tag
+docker build . -t raphielscape/$repo:$tag
 docker tag raphielscape/$repo:$tag raphielscape:$repo:$tag
 echo "$OWO" | docker login -u raphielscape --password-stdin > /dev/null 2>&1
 docker push raphielscape/$repo
