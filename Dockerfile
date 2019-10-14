@@ -1,10 +1,10 @@
-# Use Fedora Rawhide
-FROM fedora:rawhide
+# Use Fedora latest (30)
+FROM fedora:latest
 
 # We're using "docker" as Worker
 ENV WORKER=docker
 
-COPY llvm-git.repo /etc/yum.repos.d/
+COPY che-llvm.repo /etc/yum.repos.d/
 
 RUN dnf install -y \
         git \
