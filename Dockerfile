@@ -40,6 +40,7 @@ RUN dnf install -y \
         gcc \
         libtool \
         dash \
-        pigz
+        pigz \
+        java-1.8.0-openjdk
 
 CMD ["/bin/bash"]
