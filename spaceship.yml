@@ -7,4 +7,5 @@ steps:
     environment:
       OWO:
         from_secret: YEET
-    command: bash build.sh
+    command: 
+      - ./build.sh
