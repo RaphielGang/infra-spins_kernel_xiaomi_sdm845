@@ -1,23 +1,16 @@
-# Use Fedora latest (30)
-FROM fedora:latest
+# Use Arch Linux latest
+FROM archlinux:latest
 
 # We're using "docker" as Worker
 ENV WORKER=docker
 
-COPY che-llvm.repo /etc/yum.repos.d/
-
-RUN dnf install -y \
+RUN pacman -Syu --noconfirm \
         git \
-        dnf-plugins-core \
-        copr-cli \
-    \
-# Remove beignet and pocl as copr required it
-    && dnf remove -y beignet pocl \
+        base-devel \
     \
 # Install other required components
-    && dnf install -y \
+    && pacman -S --noconfirm \
         gcc-aarch64-linux-gnu \
-        clang \
         binutils \
         which \
         hostname \
@@ -41,6 +34,15 @@ RUN dnf install -y \
         libtool \
         dash \
         pigz \
-        java-1.8.0-openjdk
+    && curl 'https://raw.githubusercontent.com/archlinuxcn/mirrorlist-repo/master/archlinuxcn-mirrorlist' \
+        | sed 's/^#Server/Server/' > /etc/pacman.d/archlinuxcn-mirrorlist \
+    && echo '[archlinuxcn]' >> /etc/pacman.conf \
+    && echo 'SigLevel = Optional TrustedOnly' >> /etc/pacman.conf \
+    && echo 'Include = /etc/pacman.d/archlinuxcn-mirrorlist' >> /etc/pacman.conf \
+    && pacman -Syy \
+    && pacman-key --init \
+    && pacman-key --populate archlinux \
+    && pacman -S --noconfirm archlinuxcn-keyring \
+    && pacman -S --noconfirm llvm-svn
 
 CMD ["/bin/bash"]

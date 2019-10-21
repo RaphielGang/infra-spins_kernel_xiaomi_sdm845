@@ -1,0 +1,10 @@
+kind: pipeline
+name: Disrupt Kernelcore Droneship
+
+steps:
+  - name: docker
+    image: docker:latest
+    environment:
+      OWO:
+        from_secret: YEET
+    command: bash build.sh
