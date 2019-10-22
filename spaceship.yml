@@ -7,5 +7,13 @@ steps:
     environment:
       OWO:
         from_secret: YEET
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
     command: 
       - ./build.sh
+
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock
