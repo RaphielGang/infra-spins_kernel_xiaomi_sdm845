@@ -11,28 +11,6 @@ RUN pacman -Syu --noconfirm \
 # Install other required components
     && pacman -S --noconfirm \
         aarch64-linux-gnu-gcc \
-        binutils \
-        which \
-        hostname \
-        ncurses \
-        ccache \
-        bc \
-        bash \
-        git-core \
-        gnupg \
-        zip \
-        curl \
-        make \
-        automake \
-        autogen \
-        autoconf \
-        libtool \
-        python \
-        m4 \
-        gcc \
-        libtool \
-        dash \
-        pigz \
     && curl 'https://raw.githubusercontent.com/archlinuxcn/mirrorlist-repo/master/archlinuxcn-mirrorlist' \
         | sed 's/^#Server/Server/' > /etc/pacman.d/archlinuxcn-mirrorlist \
     && echo '[archlinuxcn]' >> /etc/pacman.conf \
