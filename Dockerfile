@@ -20,7 +20,13 @@ RUN pacman -Syu --noconfirm \
     && pacman-key --init \
     && pacman-key --populate archlinux \
     && pacman -S --noconfirm archlinuxcn-keyring \
-    && pacman -S --noconfirm yay-git \
-    && yay -S --noconfirm llvm-svn
+    && pacman -S --noconfirm yay-git 
+
+ARG _USER="android-build"
+ARG _UID="1000"
+RUN env && useradd -m  -u ${_UID}  ${_USER}
+USER ${_USER}
+
+RUN yay -S --noconfirm llvm-svn
 
 CMD ["/bin/bash"]
