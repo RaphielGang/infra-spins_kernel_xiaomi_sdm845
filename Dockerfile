@@ -10,7 +10,7 @@ RUN pacman -Syu --noconfirm \
     \
 # Install other required components
     && pacman -S --noconfirm \
-        gcc-aarch64-linux-gnu \
+        aarch64-linux-gnu-gcc \
         binutils \
         which \
         hostname \
@@ -27,7 +27,6 @@ RUN pacman -Syu --noconfirm \
         autogen \
         autoconf \
         libtool \
-        shtool \
         python \
         m4 \
         gcc \
