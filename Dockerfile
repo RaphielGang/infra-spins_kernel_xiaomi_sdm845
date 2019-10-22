@@ -4,6 +4,8 @@ FROM archlinux:latest
 # We're using "docker" as Worker
 ENV WORKER=docker
 
+COPY makepkg.conf /etc/makepkg.conf
+
 RUN pacman -Syu --noconfirm \
         git \
         base-devel \
