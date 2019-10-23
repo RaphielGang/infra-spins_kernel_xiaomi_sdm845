@@ -11,6 +11,8 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     command: 
+      - apk add -- no-cache coreutils
+      - sleep 5
       - ./build.sh
 
 services:
