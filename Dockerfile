@@ -22,7 +22,8 @@ RUN pacman -Syu --noconfirm \
     && pacman-key --init \
     && pacman-key --populate archlinux \
     && pacman -S --noconfirm archlinuxcn-keyring \
-    && pacman -S --noconfirm yay-git 
+    && pacman -S --noconfirm yay-git \
+    && pacman -Scc
 
 ARG _USER="android-build"
 ARG _UID="1000"
@@ -30,6 +31,7 @@ RUN env && useradd -m  -u ${_UID}  ${_USER} \
     && echo "android-build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER ${_USER}
 
-RUN yay -S --noconfirm llvm-git > /dev/null 2>&1
+RUN yay -Scc --noconfirm llvm-git > /dev/null 2>&1 \
+    && yay -Scc --noconfirm
 
 CMD ["/bin/bash"]
