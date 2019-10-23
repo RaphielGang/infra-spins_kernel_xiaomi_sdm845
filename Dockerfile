@@ -41,6 +41,7 @@ RUN dnf install -y \
         libtool \
         dash \
         pigz \
-        java-1.8.0-openjdk
+        java-1.8.0-openjdk \
+    && dnf clean all
 
 CMD ["/bin/bash"]
