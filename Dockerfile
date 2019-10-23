@@ -31,7 +31,7 @@ RUN env && useradd -m  -u ${_UID}  ${_USER} \
     && echo "android-build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER ${_USER}
 
-RUN yay -Scc --noconfirm llvm-git > /dev/null 2>&1 \
+RUN yay -S --noconfirm llvm-git \
     && yay -Scc --noconfirm
 
 CMD ["/bin/bash"]
