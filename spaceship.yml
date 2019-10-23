@@ -3,7 +3,7 @@ name: Disrupt Kernelcore Droneship
 
 steps:
   - name: docker
-    image: docker:latest
+    image: docker:dind
     environment:
       OWO:
         from_secret: YEET
@@ -11,9 +11,17 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     command: 
+      - sleep 5
       - ./build.sh
+
+services:
+  - name: dockersock
+    image: docker:dind
+    privilieged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
 
 volumes:
   - name: dockersock
-    host:
-      path: /var/run/docker.sock
+    temp: {}
