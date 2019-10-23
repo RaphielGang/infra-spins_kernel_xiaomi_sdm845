@@ -9,7 +9,7 @@
 
 ## Variables
 repo=spinsinfra
-tag=fedora
+tag=archlinux
 
 docker build . -t raphielscape/$repo:$tag
 echo "$OWO" | docker login -u raphielscape --password-stdin > /dev/null 2>&1
