@@ -23,7 +23,7 @@ RUN pacman -Syu --noconfirm \
     && pacman-key --populate archlinux \
     && pacman -S --noconfirm archlinuxcn-keyring \
     && pacman -S --noconfirm yay-git \
-    && pacman -Scc
+    && pacman -Scc --noconfirm
 
 ARG _USER="android-build"
 ARG _UID="1000"
