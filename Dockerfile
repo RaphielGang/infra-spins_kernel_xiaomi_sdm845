@@ -8,14 +8,6 @@ COPY che-llvm.repo /etc/yum.repos.d/
 
 RUN dnf install -y \
         git \
-        dnf-plugins-core \
-        copr-cli \
-    \
-# Remove beignet and pocl as copr required it
-    && dnf remove -y beignet pocl \
-    \
-# Install other required components
-    && dnf install -y \
         gcc \
         clang \
         binutils \
