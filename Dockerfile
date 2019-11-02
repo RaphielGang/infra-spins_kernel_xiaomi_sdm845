@@ -10,7 +10,6 @@ ARG _USER="android-build"
 ARG _UID="1000"
 RUN env && useradd -m  -u ${_UID}  ${_USER} \
     && echo "android-build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-USER ${_USER}
 
 RUN pacman -Syu --noconfirm \
         git \
@@ -52,5 +51,7 @@ RUN pacman -Syu --noconfirm \
     && yay -S --noconfirm clang \
     && yes | yay -Scc \
     && rm -fr /var/lib/pacman/sync/*
+
+USER ${_USER}
 
 CMD ["/bin/bash"]
