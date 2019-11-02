@@ -8,11 +8,31 @@ COPY makepkg.conf /etc/makepkg.conf
 
 RUN pacman -Syu --noconfirm \
         git \
-        base-devel \
     \
 # Install other required components
     && pacman -S --noconfirm \
         aarch64-linux-gnu-gcc \
+        binutils \
+        which \
+        ncurses \
+        ccache \
+        bc \
+        bash \
+        gnupg \
+        zip \
+        curl \
+        make \
+        automake \
+        autogen \
+        autoconf \
+        libtool \
+        python \
+        m4 \
+        gcc \
+        libtool \
+        dash \
+        pigz \
+        jdk-openjdk \
     && curl 'https://raw.githubusercontent.com/archlinuxcn/mirrorlist-repo/master/archlinuxcn-mirrorlist' \
         | sed 's/^#Server/Server/' > /etc/pacman.d/archlinuxcn-mirrorlist \
     && echo '[archlinuxcn]' >> /etc/pacman.conf \
