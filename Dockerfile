@@ -43,7 +43,8 @@ RUN pacman -Syu --noconfirm \
     && pacman-key --populate archlinux \
     && pacman -S --noconfirm archlinuxcn-keyring \
     && pacman -S --noconfirm yay-git \
-    && pacman -Scc --noconfirm
+    && yes | pacman -Scc \
+    && rm -fr /var/lib/pacman/sync/*
 
 ARG _USER="android-build"
 ARG _UID="1000"
@@ -52,6 +53,7 @@ RUN env && useradd -m  -u ${_UID}  ${_USER} \
 USER ${_USER}
 
 RUN yay -S --noconfirm clang \
-    && yay -Scc --noconfirm
+    && yes | yay -Scc \
+    && rm -fr /var/lib/pacman/sync/*
 
 CMD ["/bin/bash"]
