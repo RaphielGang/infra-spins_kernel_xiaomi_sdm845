@@ -16,12 +16,11 @@ RUN dnf install -y \
     \
 # Install other required components
     && dnf install -y \
-        gcc-aarch64-linux-gnu \
+        gcc \
         clang \
         binutils \
         which \
         hostname \
-        ncurses \
         ccache \
         bc \
         bash \
@@ -30,17 +29,9 @@ RUN dnf install -y \
         zip \
         curl \
         make \
-        automake \
-        autogen \
-        autoconf \
-        libtool \
         shtool \
-        python \
         m4 \
-        gcc \
         libtool \
-        dash \
-        pigz \
         java-1.8.0-openjdk \
     && dnf clean all
 
