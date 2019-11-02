@@ -7,24 +7,21 @@ ENV WORKER=docker
 COPY che-llvm.repo /etc/yum.repos.d/
 
 RUN dnf install -y \
-        git \
-        gcc \
+        git-core \
+        libtool \
         clang \
         binutils \
+        shtool \
         which \
         hostname \
         ccache \
         bc \
-        bash \
-        git-core \
-        gnupg \
+        gnupg1 \
         zip \
         curl \
         make \
-        shtool \
         m4 \
-        libtool \
-        java-1.8.0-openjdk \
+        java-latest-openjdk-headless \
     && dnf clean all
 
 CMD ["/bin/bash"]
