@@ -6,11 +6,6 @@ ENV WORKER=docker
 
 COPY makepkg.conf /etc/makepkg.conf
 
-ARG _USER="android-build"
-ARG _UID="1000"
-RUN env && useradd -m  -u ${_UID}  ${_USER} \
-    && echo "android-build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
 RUN pacman -Syu --noconfirm \
         git \
     \
@@ -47,11 +42,8 @@ RUN pacman -Syu --noconfirm \
     && pacman-key --init \
     && pacman-key --populate archlinux \
     && pacman -S --noconfirm archlinuxcn-keyring \
-    && pacman -S --noconfirm yay-git \
-    && yay -S --noconfirm clang \
-    && yes | yay -Scc \
+    && pacman -S --noconfirm clang \
+    && yes | pacman -Scc \
     && rm -fr /var/lib/pacman/sync/*
-
-USER ${_USER}
 
 CMD ["/bin/bash"]
