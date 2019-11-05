@@ -7,6 +7,7 @@ ENV WORKER=docker
 COPY che-llvm.repo /etc/yum.repos.d/
 
 RUN dnf install -y \
+        gcc-aarch64-linux-gnu \
         git-core \
         libtool \
         clang \
