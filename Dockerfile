@@ -22,6 +22,7 @@ RUN dnf install -y \
         curl \
         make \
         m4 \
+        diffutils \
         java-latest-openjdk-headless \
     && dnf clean all
 
