@@ -11,6 +11,7 @@ RUN pacman -Syu --noconfirm \
     \
 # Install other required components
     && pacman -S --noconfirm \
+        inetutils \
         libtool \
         gcc \
         binutils \
