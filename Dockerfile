@@ -25,6 +25,7 @@ RUN pacman -Syu --noconfirm \
         bash \
         gnupg \
         zip \
+        unzip \
         curl \
         make \
         m4 \
