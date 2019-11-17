@@ -27,9 +27,7 @@ RUN pacman -Syu --noconfirm \
         zip \
         curl \
         make \
-        python \
         m4 \
-        dash \
         pigz \
         jre-openjdk-headless \
         clang \
