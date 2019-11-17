@@ -11,6 +11,7 @@ RUN pacman -Syu --noconfirm \
     \
 # Install other required components
     && pacman -S --noconfirm \
+        aarch64-linux-gnu-gcc \
         inetutils \
         gawk \
         libtool \
@@ -30,16 +31,7 @@ RUN pacman -Syu --noconfirm \
         dash \
         pigz \
         jre-openjdk-headless \
-    && curl 'https://raw.githubusercontent.com/archlinuxcn/mirrorlist-repo/master/archlinuxcn-mirrorlist' \
-        | sed 's/^#Server/Server/' > /etc/pacman.d/archlinuxcn-mirrorlist \
-    && echo '[archlinuxcn]' >> /etc/pacman.conf \
-    && echo 'SigLevel = Optional TrustedOnly' >> /etc/pacman.conf \
-    && echo 'Include = /etc/pacman.d/archlinuxcn-mirrorlist' >> /etc/pacman.conf \
-    && pacman -Syy \
-    && pacman-key --init \
-    && pacman-key --populate archlinux \
-    && pacman -S --noconfirm archlinuxcn-keyring \
-    && pacman -S --noconfirm clang \
+        clang \
     && yes | pacman -Scc \
     && rm -fr /var/lib/pacman/sync/*
 
