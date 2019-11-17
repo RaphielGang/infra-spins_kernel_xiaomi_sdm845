@@ -14,6 +14,7 @@ RUN pacman -Syu --noconfirm \
         aarch64-linux-gnu-gcc \
         inetutils \
         gawk \
+        diffutils \
         libtool \
         gcc \
         binutils \
