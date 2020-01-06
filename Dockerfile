@@ -11,6 +11,7 @@ RUN dnf install -y \
         git-core \
         libtool \
         clang \
+        llvm \
         lld \
         binutils \
         shtool \
