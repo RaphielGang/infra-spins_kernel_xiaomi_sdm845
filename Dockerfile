@@ -31,8 +31,15 @@ RUN pacman -Syu --noconfirm \
         m4 \
         pigz \
         jre-openjdk-headless \
-        clang \
+        zstd \
     && yes | pacman -Scc \
     && rm -fr /var/lib/pacman/sync/*
+
+RUN curl -L "https://kdrag0n.dev/files/redirector/proton_clang-latest.tar.zst" -so /root/proton-clang.tar.zst &> /dev/null && \
+    cd /root/ && \
+    tar -I zstd -xf /root/proton-clang.tar.zst && \
+    cd /root/proton_clang* && \
+    echo $(pwd)/bin > /tmp/clang_path && \
+    rm -rf /root/proton-clang.tar.zst
 
 CMD ["/bin/bash"]
