@@ -5,8 +5,8 @@ FROM debian:experimental
 ENV WORKER=docker
 
 RUN apt update && \
-    apt upgrade && \
-    apt install \
+    apt upgrade -y && \
+    apt install -y \
         git \
         aarch64-linux-gnu-gcc \
         inetutils \
@@ -27,6 +27,8 @@ RUN apt update && \
         m4 \
         pigz \
         jre-openjdk-headless \
-        clang
+        clang && \
+    apt autoremove && \
+    apt autoclean
 
 CMD ["/bin/bash"]
