@@ -4,7 +4,9 @@ FROM debian:experimental
 # We're using "docker" as Worker
 ENV WORKER=docker
 
-RUN apt install \
+RUN apt update && \
+    apt upgrade && \
+    apt install \
         git \
         aarch64-linux-gnu-gcc \
         inetutils \
