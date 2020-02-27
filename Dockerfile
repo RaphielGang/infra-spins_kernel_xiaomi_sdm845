@@ -8,14 +8,11 @@ RUN apt update && \
     apt upgrade -y && \
     apt install -y \
         git \
-        aarch64-linux-gnu-gcc \
-        inetutils \
+        gcc-aarch64-linux-gnu \
         gawk \
         diffutils \
         libtool \
         binutils \
-        which \
-        ncurses \
         ccache \
         bc \
         bash \
@@ -26,7 +23,7 @@ RUN apt update && \
         make \
         m4 \
         pigz \
-        jre-openjdk-headless \
+        default-jre-headless \
         clang && \
     apt autoremove && \
     apt autoclean
