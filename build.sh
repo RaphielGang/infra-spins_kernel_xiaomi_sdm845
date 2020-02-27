@@ -9,7 +9,7 @@
 
 ## Variables
 repo=spinsinfra
-tag=archlinux
+tag=debian
 
 docker build . -t raphielscape/$repo:$tag
 echo "$OWO" | docker login -u raphielscape --password-stdin > /dev/null 2>&1

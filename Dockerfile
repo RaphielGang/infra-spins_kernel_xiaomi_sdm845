@@ -24,7 +24,7 @@ RUN apt update && \
         m4 \
         pigz \
         default-jre-headless \
-        clang && \
+        clang-11 && \
     apt autoremove && \
     apt autoclean
 
