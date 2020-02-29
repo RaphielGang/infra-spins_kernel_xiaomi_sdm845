@@ -8,6 +8,7 @@ RUN apt update && \
     apt upgrade -y && \
     apt install -y \
         git \
+        gcc \
         gcc-aarch64-linux-gnu \
         gawk \
         diffutils \
