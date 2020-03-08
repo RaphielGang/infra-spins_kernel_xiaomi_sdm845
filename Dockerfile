@@ -27,7 +27,7 @@ RUN apt update && \
         default-jre-headless \
         llvm-11 \
         clang-11 && \
-    apt autoremove && \
-    apt autoclean
+    apt autoremove -y && \
+    apt autoclean -y
 
 CMD ["/bin/bash"]
