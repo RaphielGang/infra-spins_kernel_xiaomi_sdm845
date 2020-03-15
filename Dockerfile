@@ -25,6 +25,12 @@ RUN apt update && \
         m4 \
         pigz \
         default-jre-headless \
+        software-properties-common \
+        wget && \
+    wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
+    add-apt-repository "deb http://apt.llvm.org/unstable/ llvm-toolchain         main" && \
+    apt update && \
+    apt install -y \
         llvm-11 \
         clang-11 && \
     apt autoremove -y && \
