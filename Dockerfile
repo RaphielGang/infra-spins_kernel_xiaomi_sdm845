@@ -31,6 +31,7 @@ RUN apt update && \
     add-apt-repository "deb http://apt.llvm.org/unstable/ llvm-toolchain         main" && \
     apt update && \
     apt install -y \
+        lld-11 \
         llvm-11 \
         clang-11 && \
     apt autoremove -y && \
